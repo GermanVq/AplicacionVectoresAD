@@ -123,6 +123,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtresultado.setEditable(false);
         txtresultado.setColumns(20);
         txtresultado.setRows(5);
         jScrollPane1.setViewportView(txtresultado);
@@ -173,10 +174,31 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarManualActionPerformed
      double n;
+     int sw,res=0;
+     
         for (int i = 0; i < v.length; i++) {
+            do{
+                sw=1;
+            
+            try {
             n = Double.parseDouble(JOptionPane.showInputDialog(this, "Digite el elmento en la posición "+i));
             v[i]=n;
+            }catch (NumberFormatException e){
+                JOptionPane.showMessageDialog(this,"Digite numero valido","Error",JOptionPane.ERROR_MESSAGE);
+                sw=0;
+            }catch (NullPointerException e){
+                JOptionPane.showConfirmDialog(this,"¿Seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+               if(res==0){
+                   sw=1;
+                   i=v.length;
+                   
+               }else{
+                   
+               } 
+             }
+            } while (sw==0);
         }
+        
          cmdCrear.setEnabled(false);
         cmdLlenarManual.setEnabled(false);
         cmdLlenarAuto.setEnabled(false);
@@ -202,11 +224,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
          txtlongitud.setText("");
-       txtresultado.setText("");
-       v = null;
-       txtlongitud.requestFocusInWindow();
+        txtresultado.setText("");
+        v = null;
+        txtlongitud.requestFocusInWindow();
        
-       cmdCrear.setEnabled(true);
+        cmdCrear.setEnabled(true);
         cmdLlenarManual.setEnabled(false);
         cmdLlenarAuto.setEnabled(false);
         cmdMostrar.setEnabled(false);
