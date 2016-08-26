@@ -20,6 +20,11 @@ public class Principal extends javax.swing.JFrame {
     double v[];
     public Principal() {
         initComponents();
+        cmdCrear.setEnabled(true);
+        cmdLlenarManual.setEnabled(false);
+        cmdLlenarAuto.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
     }
 
     /**
@@ -146,6 +151,12 @@ public class Principal extends javax.swing.JFrame {
             v = new double[longitud];
             JOptionPane.showMessageDialog(this, "Vector Creado satisfactoriamente!");
            
+            cmdCrear.setEnabled(false);
+            cmdLlenarManual.setEnabled(true);
+            cmdLlenarAuto.setEnabled(true);
+            cmdMostrar.setEnabled(false);
+            cmdBorrar.setEnabled(true);
+            txtlongitud.setEditable(false);
 
             
           
@@ -166,6 +177,11 @@ public class Principal extends javax.swing.JFrame {
             n = Double.parseDouble(JOptionPane.showInputDialog(this, "Digite el elmento en la posición "+i));
             v[i]=n;
         }
+         cmdCrear.setEnabled(false);
+        cmdLlenarManual.setEnabled(false);
+        cmdLlenarAuto.setEnabled(false);
+        cmdMostrar.setEnabled(true);
+        cmdBorrar.setEnabled(true);
        
     }//GEN-LAST:event_cmdLlenarManualActionPerformed
 
@@ -177,6 +193,11 @@ public class Principal extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(this, "Vector Llenado Correctamente");
         
+         cmdCrear.setEnabled(false);
+         cmdLlenarAuto.setEnabled(false);
+         cmdLlenarManual.setEnabled(false);
+        cmdMostrar.setEnabled(true);
+        cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdLlenarAutoActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
@@ -184,6 +205,13 @@ public class Principal extends javax.swing.JFrame {
        txtresultado.setText("");
        v = null;
        txtlongitud.requestFocusInWindow();
+       
+       cmdCrear.setEnabled(true);
+        cmdLlenarManual.setEnabled(false);
+        cmdLlenarAuto.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        txtlongitud.setEnabled(true);
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
@@ -191,6 +219,11 @@ public class Principal extends javax.swing.JFrame {
            txtresultado.append(v[i]+"\n");
             
         }
+        cmdCrear.setEnabled(false);
+        cmdLlenarManual.setEnabled(false);
+        cmdLlenarAuto.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     /**
